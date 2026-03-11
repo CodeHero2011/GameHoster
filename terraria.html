@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Terraria Launcher</title>
+</head>
+<body>
+
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<button class="launch-btn" onclick="launchGame()">
+<span>Enter Game</span>
+<span class="btn-arrow">→</span>
+</button>
+<p class="note">Opens in a new window &nbsp;·&nbsp; WebGL required</p>
+
+<script>
+  function launchGame() {
+
+    const gameHTML = `<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" href="./app.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="Terrarium" />
+		<meta
+			property="og:description"
+			content="Terraria port for WebAssembly. Play Terraria online in the browser."
+		/>
+		<meta
+			name="description"
+			content="Terraria port for WebAssembly. Play Terraria online in the browser."
+		/>
+		<style>
+			html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#game-container, iframe, canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+		</style>
+		<link rel="canonical" href="https://terraria.mercurywork.shop" />
+		<title>Terrarium</title>
+        <script type="module" crossorigin src="https://cdn.jsdelivr.net/gh/CodeHero2011/GameHoster/terraria.js"></script>
+	
+</head>
+
+	<body>
+		<div id="app"></div>
+		<canvas id="canvas" style="width: 100%">
+
+		</canvas>
+	</body>
+</html>`;
+
+    const win = window.open('about:blank', '_blank');
+
+    if (win) {
+
+      win.document.open();
+
+      win.document.write(gameHTML);
+
+      win.document.close();
+
+    } else {
+
+      alert('Pop-up blocked! Please allow pop-ups for this page and try again.');
+
+    }
+
+  }
+</script>
+</body>
+</html>
