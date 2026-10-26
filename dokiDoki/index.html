@@ -1,4 +1,26 @@
-<!doctypehtml>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Terraria Launcher</title>
+</head>
+<body>
+
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<button class="launch-btn" onclick="launchGame()">
+<span>Enter Game</span>
+<span class="btn-arrow">→</span>
+</button>
+<p class="note">Opens in a new window &nbsp;·&nbsp; WebGL required</p>
+
+<script>
+  function launchGame() {
+
+    const gameHTML = `<!doctypehtml>
 <html lang=en-us>
     <head>
         <meta charset=utf-8>
@@ -32,4 +54,25 @@
             <a id=ContextButton>≡</a>
             <br>
             <div id=ContextMenu style=display:none>
-                <input id=ID_SavegamesImport accept=application/zip onchange=onSavegamesImport(this) style=display:none type=file><a href="javascript:document.getElementById('ID_SavegamesImport').click();">Import Saves</a><a href=javascript:onSavegamesExport();>Export Saves</a><a href="javascript:FSDownload('/log.txt', 'text/plain');">Download Log</a><a href=https://www.renpy.org/ target=_blank>Powered by Ren'Py</a></div></div><div id=statusDiv class=hidden><div id=statusTextDiv></div><progress id=statusProgress max=100 value=0></progress></div><div id=inputDiv class=hidden><form id=inputForm><div id=inputPrompt></div><input id=inputText></form></div><script>navigator.serviceWorker&&(navigator.serviceWorker.controller||navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"all"}))</script><script src=https://cdn.jsdelivr.net/gh/CodeHero2011/GameHoster/dokiDoki/renpy-pre.js></script><script src=https://cdn.jsdelivr.net/gh/CodeHero2011/GameHoster/dokiDoki/renpy.js async></script></body></html>
+                <input id=ID_SavegamesImport accept=application/zip onchange=onSavegamesImport(this) style=display:none type=file><a href="javascript:document.getElementById('ID_SavegamesImport').click();">Import Saves</a><a href=javascript:onSavegamesExport();>Export Saves</a><a href="javascript:FSDownload('/log.txt', 'text/plain');">Download Log</a><a href=https://www.renpy.org/ target=_blank>Powered by Ren'Py</a></div></div><div id=statusDiv class=hidden><div id=statusTextDiv></div><progress id=statusProgress max=100 value=0></progress></div><div id=inputDiv class=hidden><form id=inputForm><div id=inputPrompt></div><input id=inputText></form></div><script>navigator.serviceWorker&&(navigator.serviceWorker.controller||navigator.serviceWorker.register("./service-worker.js",{updateViaCache:"all"}))</script><script src=https://cdn.jsdelivr.net/gh/CodeHero2011/GameHoster/dokiDoki/renpy-pre.js></script><script src=https://cdn.jsdelivr.net/gh/CodeHero2011/GameHoster/dokiDoki/renpy.js async><\/script></body></html>`;
+
+    const win = window.open('about:blank', '_blank');
+
+    if (win) {
+
+      win.document.open();
+
+      win.document.write(gameHTML);
+
+      win.document.close();
+
+    } else {
+
+      alert('Pop-up blocked! Please allow pop-ups for this page and try again.');
+
+    }
+
+  }
+</script>
+</body>
+</html>
